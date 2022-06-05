@@ -1,12 +1,8 @@
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
-        if len(s) != len(t):
-            return False
-        countS,countT={},{}
-        for i in range(len(s)):
-            countS[s[i]] = 1 + countS.get(s[i] , 0 )
-            countT[t[i]] = 1 + countT.get(t[i] , 0)
-        for c in countS:
-            if countS[c] != countT.get(c,0):
-                return False
-        return True
+        dic1, dic2 = {}, {}
+        for item in s:
+           dic1[item] = dic1.get(item, 0) + 1
+        for item in t:
+           dic2[item] = dic2.get(item, 0) + 1
+        return dic1 == dic2
